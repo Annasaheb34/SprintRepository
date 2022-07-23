@@ -14,8 +14,9 @@ import com.onlineeyeclinic.dto.Appointment;
 
 @Repository
 public interface IAppointmentRepo extends JpaRepository<Appointment,Integer> {
+	
 	@Query("from Appointment where dateOfAppointment=?1") 
-public List<Appointment> getByDate(Date date);
+	public List<Appointment> getByDate(Date date);
 	@Query("from Appointment where doctor.doctorId=?1")
 	public List<Appointment> findAllAppointmentByDoctorId(int doctorId);
 	@Query("from Appointment where patient.patientId=?1")

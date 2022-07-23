@@ -20,24 +20,26 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
 public class Appointment {
+	
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE,generator="appoint_seq")
 	@SequenceGenerator(name="appoint_seq",sequenceName="appoint_seq",allocationSize=1)
 	@Column(name="appointment_Id")
-private int appointmentId;
+	private int appointmentId;
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MMM-yyyy")
 	@Column(name="date_Of_Appointment")
-private Date dateOfAppointment;
+	private Date dateOfAppointment;
 	@Column(name="time_Of_Appointment")
-private String timeOfAppointment;
+	private String timeOfAppointment;
 	@Column(name="consultation_Fee")
-private double consultationFee;
+	private double consultationFee;
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="doctor_Id")
 	private Doctor doctor;
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="patient_Id",insertable = false, updatable = false)
 	private Patient patient;
+	
 	public int getAppointmentId() {
 		return appointmentId;
 	}
