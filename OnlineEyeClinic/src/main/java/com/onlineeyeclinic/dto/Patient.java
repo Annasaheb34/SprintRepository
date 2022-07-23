@@ -1,5 +1,9 @@
 package com.onlineeyeclinic.dto;
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> branch 'master' of https://github.com/Annasaheb34/SprintRepository.git
 import java.util.Date;
 import java.util.List;
 import javax.persistence.CascadeType;
