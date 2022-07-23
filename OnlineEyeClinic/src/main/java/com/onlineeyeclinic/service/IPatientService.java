@@ -2,16 +2,7 @@ package com.onlineeyeclinic.service;
 
 import java.util.List;
 
-<<<<<<< HEAD
-import com.onlineeyeclinic.dto.Patient;
 
-public interface IPatientService {
-
-	public List<Patient> viewAllPatients();
-
-	public Patient addPatient(Patient patient);
-
-=======
 import org.springframework.stereotype.Service;
 
 import com.onlineeyeclinic.dto.Appointment;
@@ -38,5 +29,5 @@ public interface IPatientService{
 	public List<Appointment> viewAppointmentsByPatient(int patientId)throws PatientIdNotFoundException;
 	//viewing report by patient
 	public List<Report> viewReportsByPatient(int patientId)throws PatientIdNotFoundException;
->>>>>>> branch 'master' of https://github.com/Annasaheb34/SprintRepository.git
+
 }

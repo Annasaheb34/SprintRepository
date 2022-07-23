@@ -15,7 +15,6 @@ import com.onlineeyeclinic.dao.ITestRepo;
 import com.onlineeyeclinic.dto.Doctor;
 import com.onlineeyeclinic.dto.TestModule;
 import com.onlineeyeclinic.exceptions.TestIdNotFoundException;
-import com.onlineeyeclinic.service.ITestService;
 
 
 @SpringBootTest

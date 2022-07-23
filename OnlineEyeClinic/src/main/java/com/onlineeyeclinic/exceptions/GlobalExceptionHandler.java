@@ -19,6 +19,53 @@ public class GlobalExceptionHandler {
 		ErrorDetails errorDetails=new ErrorDetails(LocalDateTime.now(), ex.getMessage(), request.getDescription(false));
 		return new ResponseEntity<>(errorDetails, HttpStatus.NOT_FOUND);
 	}
+	@ExceptionHandler(AdminIdNotFoundException.class)
+	public ResponseEntity<?> resourceNotFoundException(AdminIdNotFoundException ex, WebRequest request){
+		ErrorDetails errorDetails=new ErrorDetails(LocalDateTime.now(), ex.getMessage(), request.getDescription(false));
+		return new ResponseEntity<>(errorDetails, HttpStatus.NOT_FOUND);
+	}
+	
+	@ExceptionHandler(AppointmentIdNotFoundException.class)
+	public ResponseEntity<?> resourceNotFoundException(AppointmentIdNotFoundException ex, WebRequest request){
+		ErrorDetails errorDetails=new ErrorDetails(LocalDateTime.now(), ex.getMessage(), request.getDescription(false));
+		return new ResponseEntity<>(errorDetails, HttpStatus.NOT_FOUND);
+	}
+	
+	@ExceptionHandler(DoctorIdNotFoundException.class)
+	public ResponseEntity<?> resourceNotFoundException(DoctorIdNotFoundException ex, WebRequest request){
+		ErrorDetails errorDetails=new ErrorDetails(LocalDateTime.now(), ex.getMessage(), request.getDescription(false));
+		return new ResponseEntity<>(errorDetails, HttpStatus.NOT_FOUND);
+	}
+	
+	@ExceptionHandler(ReportIdNotFoundException.class)
+	public ResponseEntity<?> resourceNotFoundException(ReportIdNotFoundException ex, WebRequest request){
+		ErrorDetails errorDetails=new ErrorDetails(LocalDateTime.now(), ex.getMessage(), request.getDescription(false));
+		return new ResponseEntity<>(errorDetails, HttpStatus.NOT_FOUND);
+	}
+	
+	@ExceptionHandler(PatientIdNotFoundException.class)
+	public ResponseEntity<?> resourceNotFoundException(PatientIdNotFoundException ex, WebRequest request){
+		ErrorDetails errorDetails=new ErrorDetails(LocalDateTime.now(), ex.getMessage(), request.getDescription(false));
+		return new ResponseEntity<>(errorDetails, HttpStatus.NOT_FOUND);
+	}
+	
+	@ExceptionHandler(SpectacleIdNotFoundException.class)
+	public ResponseEntity<?> resourceNotFoundException(SpectacleIdNotFoundException ex, WebRequest request){
+		ErrorDetails errorDetails=new ErrorDetails(LocalDateTime.now(), ex.getMessage(), request.getDescription(false));
+		return new ResponseEntity<>(errorDetails, HttpStatus.NOT_FOUND);
+	}
+	
+	@ExceptionHandler(TestIdNotFoundException.class)
+	public ResponseEntity<?> resourceNotFoundException(TestIdNotFoundException ex, WebRequest request){
+		ErrorDetails errorDetails=new ErrorDetails(LocalDateTime.now(), ex.getMessage(), request.getDescription(false));
+		return new ResponseEntity<>(errorDetails, HttpStatus.NOT_FOUND);
+	}
+	
+	@ExceptionHandler(UserNameAlreadyExistException.class)
+	public ResponseEntity<?> resourceNotFoundException(UserNameAlreadyExistException ex, WebRequest request){
+		ErrorDetails errorDetails=new ErrorDetails(LocalDateTime.now(), ex.getMessage(), request.getDescription(false));
+		return new ResponseEntity<>(errorDetails, HttpStatus.NOT_FOUND);
+	}
 	
 	@ExceptionHandler(Exception.class)
 	public ResponseEntity<?> globalExceptionHandler(Exception ex, WebRequest request){
@@ -33,5 +80,6 @@ public class GlobalExceptionHandler {
                     exception.getBindingResult().getFieldError().getDefaultMessage());
             return new ResponseEntity<>(errorDetails,HttpStatus.BAD_REQUEST);
      }
+	 
 }
 
