@@ -11,7 +11,7 @@
 		<!-- lookup parent from repository -->
 	</parent>
 	<groupId>com</groupId>
-	<artifactId>OnlineEyeCare</artifactId>
+	<artifactId>OnlineEyeClinic</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>OnlineEyeCare</name>
 	<description>Demo project for Spring Boot</description>

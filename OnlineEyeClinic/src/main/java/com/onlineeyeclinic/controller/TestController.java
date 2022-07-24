@@ -2,6 +2,10 @@ package com.onlineeyeclinic.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,6 +26,7 @@ import com.onlineeyeclinic.service.ITestService;
 @RestController
 @RequestMapping("test/api/v1")
 public class TestController {
+	Log logger = LogFactory.getLog(TestController.class);
 
 	@Autowired
 	private ITestService ts;
@@ -30,15 +35,17 @@ public class TestController {
 	public ResponseEntity<List<TestModule>> getAllTests(){
 		List<TestModule> testModule= ts.viewAllTests();
 		if(testModule.isEmpty()) {
+			logger.info("get Alltests successfully" );
 			return new ResponseEntity("Sorry! tests not found!", 
 					HttpStatus.NOT_FOUND);
+			
 		}
 		
 		return new ResponseEntity<List<TestModule>>(testModule, HttpStatus.OK);
 	}
     @SuppressWarnings({ "rawtypes", "unchecked" })
 	@PostMapping("/tests")
-	public ResponseEntity<TestModule> InsertTest(@RequestBody TestModule testModules){
+	public ResponseEntity<TestModule> InsertTest(@Valid @RequestBody TestModule testModules){
 		TestModule testModule= ts.addTest(testModules);
 		if(testModule==null) {
 			return new ResponseEntity("Sorry! tests not inserted!", 
