@@ -5,10 +5,12 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 
@@ -33,10 +35,9 @@ private String doctorUserName;
 private String doctorPassword;
 @Column(name="doctor_Address")
 private String doctorAddress;
-//@OneToMany(targetEntity =Appointment.class)
-//@JoinColumn(name="doctor_Id")
-//private List<Appointment> appointment=new ArrayList<>();
+
 @OneToMany(targetEntity =TestModule.class,cascade=CascadeType.MERGE)
+
 @JoinColumn(name="doctor_Id",nullable = false, updatable = false)
 private List<TestModule> testModule;
 
@@ -47,9 +48,7 @@ public List<TestModule> getTest() {
 public void setTest(List<TestModule> testModule) {
 	this.testModule = testModule;
 }
-//public void setAppointment(List<Appointment> appointment) {
-//	this.appointment = appointment;
-//}
+
 public int getDoctorId() {
 	return doctorId;
 }
